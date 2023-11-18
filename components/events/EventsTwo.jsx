@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
+import React, {useEffect, useState} from "react";
 import Pagination from "../common/Pagination";
-import { events, categories, findEvent, tags } from "@/data/events";
+import {categories, events, tags} from "@/data/events";
 import Link from "next/link";
 
 export default function EventsTwo() {
@@ -25,7 +25,7 @@ export default function EventsTwo() {
             <div className="row justify-center text-center">
               <div className="col-auto">
                 <div>
-                  <h1 className="page-header__title">Event</h1>
+                  <h1 className="page-header__title">Assessment</h1>
                 </div>
 
                 <div>

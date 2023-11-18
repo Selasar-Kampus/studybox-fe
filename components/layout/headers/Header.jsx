@@ -1,84 +1,87 @@
 "use client";
-import React from "react";
-import { HeaderExplore } from "../component/header-explore";
 
-import SearchToggle from "../component/SearchToggle";
+import React, {useState, useEffect} from "react";
 import CartToggle from "../component/CartToggle";
+import {HeaderExplore} from "../component/header-explore";
 import Menu from "../component/Menu";
-import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
 import MobileMenu from "../component/MobileMenu";
+import SearchToggle from "../component/SearchToggle";
+import Image from "next/image";
+import Socials from "@/components/common/Socials";
+import Link from "next/link";
 
 export default function Header() {
   const [activeMobileMenu, setActiveMobileMenu] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const position = window.scrollY;
+      setScrollPosition(position);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <>
-      <header className="header -type-1 ">
-        <div className="header__container">
+      <header
+          data-add-bg="bg-white"
+          className={`header -type-5 js-header ${
+              scrollPosition > 50 ? "bg-white" : ""
+          }`}
+      >
+        <div className="header__container py-10">
           <div className="row justify-between items-center">
             <div className="col-auto">
-              <div className="header-left">
+              <div className="header-left d-flex items-center">
                 <div className="header__logo ">
-                  <Link href="/">
+                  <Link data-barba href="/">
                     <Image
-                      width={140}
-                      height={50}
-                      src="/assets/img/general/logo.svg"
-                      alt="logo"
+                        width={140}
+                        height={50}
+                        src="/assets/img/general/logo-dark.svg"
+                        alt="logo"
                     />
                   </Link>
                 </div>
-
-                {/* header explore start */}
-                <HeaderExplore
-                  allClasses={
-                    "header__explore text-green-1 ml-60 xl:ml-30 xl:d-none"
-                  }
-                />
-                {/* header explore end */}
               </div>
             </div>
 
-            <Menu allClasses={"menu__nav text-white -is-active"} />
-            <MobileMenu
-              setActiveMobileMenu={setActiveMobileMenu}
-              activeMobileMenu={activeMobileMenu}
-            />
+            <div className="col-auto">
+              <Menu
+                  allClasses={"menu__nav text-dark-1 ml-50 xl:ml-30 -is-active"}
+              />
+              <MobileMenu
+                  setActiveMobileMenu={setActiveMobileMenu}
+                  activeMobileMenu={activeMobileMenu}
+              />
+            </div>
 
             <div className="col-auto">
               <div className="header-right d-flex items-center">
                 <div className="header-right__icons text-white d-flex items-center">
-                  {/* search toggle start */}
-                  <SearchToggle />
-                  {/* search toggle end */}
-
-                  {/* cart toggle start */}
-                  <CartToggle
-                    parentClassess={"relative ml-30 xl:ml-20"}
-                    allClasses={"d-flex items-center text-white"}
-                  />
-                  {/* cart toggle end */}
-
                   <div className="d-none xl:d-block ml-20">
                     <button
-                      onClick={() => setActiveMobileMenu(true)}
-                      className="text-white items-center"
-                      data-el-toggle=".js-mobile-menu-toggle"
+                        className="text-dark-1 items-center"
+                        onClick={() => setActiveMobileMenu(true)}
+                        data-el-toggle=".js-mobile-menu-toggle"
                     >
                       <i className="text-11 icon icon-mobile-menu"></i>
                     </button>
                   </div>
                 </div>
 
-                <div className="header-right__buttons d-flex items-center ml-30 md:d-none">
-                  <Link href="/login" className="button -underline text-white">
+                <div className="header-right__buttons d-flex items-center ml-30 xl:ml-20 lg:d-none">
+                  <Link href="/login" className="button -underline text-dark-1">
                     Log in
                   </Link>
                   <Link
-                    href="/signup"
-                    className="button -sm -white text-dark-1 ml-30"
+                      href="/signup"
+                      className="button px-25 h-50 -dark-1 text-white ml-20"
                   >
                     Sign up
                   </Link>
@@ -88,6 +91,5 @@ export default function Header() {
           </div>
         </div>
       </header>
-    </>
   );
 }

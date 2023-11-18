@@ -1,13 +1,14 @@
 "use client";
 import Image from "next/image";
-import { Navigation, Pagination } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
+import {Navigation, Pagination} from "swiper";
+import {Swiper, SwiperSlide} from "swiper/react";
 import ModalVideo from "@/components/common/ModalVideo";
 import "swiper/css";
 
 import "swiper/css/pagination";
-import { useEffect, useState } from "react";
-import { testimonials } from "../../../data/tesimonials";
+import {useEffect, useState} from "react";
+import {testimonials} from "../../../data/tesimonials";
+
 export default function TestimonialsEight() {
   const [isOpen, setIsOpen] = useState(false);
   const [showSlider, setShowSlider] = useState(false);
@@ -121,7 +122,7 @@ export default function TestimonialsEight() {
                   />
                 </div>
 
-                <div className="-el-2" onClick={() => setIsOpen(true)} cursor>
+                <div className="-el-2" onClick={() => setIsOpen(true)}>
                   <div
                     style={{ cursor: "pointer" }}
                     className="d-flex items-center justify-center bg-white size-90 rounded-full js-gallery"

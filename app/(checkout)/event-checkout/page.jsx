@@ -1,24 +1,24 @@
+import PageLinks from '@/components/common/PageLinks'
 import Preloader from '@/components/common/Preloader'
-import HeaderAuth from '@/components/layout/headers/HeaderAuth'
-import AuthImageMove from '@/components/others/AuthImageMove'
-import SignUpForm from '@/components/others/SignUpForm'
+import Footer from '@/components/layout/footers/Footer'
+import Header from '@/components/layout/headers/Header'
 import React from 'react'
+import EventCheckOut from '@/components/cartsAndCheckout/EventCheckout'
 
 export const metadata = {
-    title: 'Sign up',
+    title: 'Event-checkout',
     description: 'Elevate your e-learning content with Educrat, the most impressive LMS template for online courses, education and LMS platforms.',
 
 }
 export default function page() {
     return (<div className="main-content  ">
         <Preloader/>
-
-        <HeaderAuth/>
+        <Header/>
         <div className="content-wrapper js-content-wrapper overflow-hidden">
-            <section className="form-page js-mouse-move-container">
-                <AuthImageMove/>
-                <SignUpForm/>
-            </section>
+            <PageLinks/>
+            <EventCheckOut/>
+            <Footer/>
         </div>
     </div>)
 }
+

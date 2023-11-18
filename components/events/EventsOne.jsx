@@ -1,9 +1,10 @@
 "use client";
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
-import { events, categories } from "@/data/events";
+import React, {useEffect, useState} from "react";
+import {categories, events} from "@/data/events";
 import Pagination from "../common/Pagination";
 import Link from "next/link";
+
 export default function EventsOne() {
   const [pageItems, setPageItems] = useState([]);
   const [currentCategory, setCurrentCategory] = useState("All Categories");
@@ -24,7 +25,7 @@ export default function EventsOne() {
             <div className="row justify-center text-center">
               <div className="col-auto">
                 <div>
-                  <h1 className="page-header__title">Event</h1>
+                  <h1 className="page-header__title">Events at StudyBox</h1>
                 </div>
 
                 <div>

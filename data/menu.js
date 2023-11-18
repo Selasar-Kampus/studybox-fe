@@ -46,7 +46,7 @@ export const menuList = [
         ],
       },
       {
-        title: "About Courses",
+        title: "AboutStudyCare Courses",
         links: [
           { href: "/lesson-single-1", label: "Lesson Page v1" },
           { href: "/lesson-single-2", label: "Lesson Page v2" },
@@ -122,10 +122,10 @@ export const menuList = [
     title: "Pages",
     links: [
       {
-        title: "About Us",
+        title: "AboutStudyCare Us",
         links: [
-          { href: "/about-1", label: "About 1" },
-          { href: "/about-2", label: "About 2" },
+          { href: "/about-1", label: "AboutStudyCare 1" },
+          { href: "/studypotentia", label: "AboutStudyCare 2" },
         ],
       },
       {
